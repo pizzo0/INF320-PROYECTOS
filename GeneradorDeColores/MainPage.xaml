@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeneradorDeColores.MainPage"
+             xmlns:local="clr-namespace:GeneradorDeColores"
+             x:Name="ContentPage">
+
+    <Grid>
+        <Border
+            Padding="25"
+            Margin="25"
+            BackgroundColor="White"
+            StrokeShape="RoundRectangle 20"
+            Stroke="Transparent"
+            HorizontalOptions="Fill"
+            VerticalOptions="Center">
+            <VerticalStackLayout
+                Spacing="15">
+
+                <Label
+                    Text="Colores"
+                    FontSize="30"
+                    HorizontalOptions="Center"/>
+                
+                <Label
+                    Text="Rojo"/>
+                <Slider x:Name="RedValue"
+                        Minimum="0"
+                        Maximum="255"
+                        ValueChanged="OnSliderValueChanged"/>
+                <Label
+                    Text="Verde"/>
+                <Slider x:Name="GreenValue"
+                        Minimum="0"
+                        Maximum="255"
+                        ValueChanged="OnSliderValueChanged"/>
+                <Label
+                    Text="Azul"/>
+                <Slider x:Name="BlueValue"
+                        Minimum="0"
+                        Maximum="255"
+                        ValueChanged="OnSliderValueChanged"/>
+
+                <Label
+                    x:Name="HexCode"
+                    HorizontalOptions="Center"
+                    TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="OnHexTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Button
+                    Text="Generar color random"
+                    Clicked="OnGenerateRandomColor"/>
+
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+
+</ContentPage>
