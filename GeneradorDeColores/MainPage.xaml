@@ -7,49 +7,75 @@
 
     <Grid>
         <Border
-            Padding="25"
-            Margin="25"
-            BackgroundColor="White"
-            StrokeShape="RoundRectangle 20"
-            Stroke="Transparent"
+            Padding="24"
+            Margin="24"
+            BackgroundColor="{AppThemeBinding Light=White, Dark=#141414}"
+            StrokeShape="RoundRectangle 16"
             HorizontalOptions="Fill"
             VerticalOptions="Center">
             <VerticalStackLayout
-                Spacing="15">
+                Spacing="16">
 
                 <Label
                     Text="Colores"
-                    FontSize="30"
+                    FontSize="24"
                     HorizontalOptions="Center"/>
                 
                 <Label
-                    Text="Rojo"/>
+                    Text="Rojo:"/>
                 <Slider x:Name="RedValue"
+                        MinimumTrackColor="#FFE41818"
+                        ThumbColor="#FFE41818"
                         Minimum="0"
                         Maximum="255"
                         ValueChanged="OnSliderValueChanged"/>
                 <Label
-                    Text="Verde"/>
+                    Text="Verde:"/>
                 <Slider x:Name="GreenValue"
+                        MinimumTrackColor="#FF3EDB3E"
+                        ThumbColor="#FF3EDB3E"
                         Minimum="0"
                         Maximum="255"
                         ValueChanged="OnSliderValueChanged"/>
                 <Label
-                    Text="Azul"/>
+                    Text="Azul:"/>
                 <Slider x:Name="BlueValue"
+                        MinimumTrackColor="#FF2C2CD9"
+                        ThumbColor="#FF2C2CD9"
                         Minimum="0"
                         Maximum="255"
                         ValueChanged="OnSliderValueChanged"/>
 
-                <Label
-                    x:Name="HexCode"
+                <Border
+                    Padding="16,12"
                     HorizontalOptions="Center"
-                    TextDecorations="Underline">
-                    <Label.GestureRecognizers>
+                    StrokeShape="RoundRectangle 8">
+                    <HorizontalStackLayout
+                        Spacing="4"
+                        VerticalOptions="Center">
+
+                        
+                        <Label
+                            FontFamily="MaterialSymbols"
+                            Text="content_copy"
+                            FontSize="16"
+                            VerticalOptions="Center"/>
+                        
+                        <Label
+                            Text="Hex:"
+                            VerticalOptions="Center"/>
+
+                        <Label
+                            x:Name="HexCode"
+                            TextDecorations="Underline"
+                            VerticalOptions="Center"/>
+                        
+                    </HorizontalStackLayout>
+                    <Border.GestureRecognizers>
                         <TapGestureRecognizer
                             Tapped="OnHexTapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                    </Border.GestureRecognizers>
+                </Border>
                 
                 <Button
                     Text="Generar color random"

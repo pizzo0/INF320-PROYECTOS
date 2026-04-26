@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Maui.Core.Platform;
 
 namespace GeneradorDeColores;
 
@@ -11,9 +10,9 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 		SetColor();
 	}
-	Random rnd = new Random();
-
+	
 	bool flag = false;
+	Random rnd = new Random();
 
 	private void SetColor()
 	{
