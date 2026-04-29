@@ -5,14 +5,14 @@ namespace GeneradorDeColores;
 
 public partial class MainPage : ContentPage
 {
+	bool flag = false;
+	Random rnd = new Random();
+
 	public MainPage()
 	{
 		InitializeComponent();
 		SetColor();
 	}
-	
-	bool flag = false;
-	Random rnd = new Random();
 
 	private void SetColor()
 	{
