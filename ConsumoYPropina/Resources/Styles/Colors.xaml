@@ -3,36 +3,36 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="Primary">#6750A4</Color>
-    <Color x:Key="OnPrimary">#FFFFFF</Color>
-    <Color x:Key="PrimaryContainer">#EADDFF</Color>
-    <Color x:Key="OnPrimaryContainer">#21005D</Color>
+    <Color x:Key="Primary">#97D783</Color>
+    <Color x:Key="OnPrimary">#033900</Color>
+    <Color x:Key="PrimaryContainer">#18520D</Color>
+    <Color x:Key="OnPrimaryContainer">#B2F49C</Color>
 
-    <Color x:Key="Secondary">#625B71</Color>
-    <Color x:Key="OnSecondary">#FFFFFF</Color>
-    <Color x:Key="SecondaryContainer">#E8DEF8</Color>
-    <Color x:Key="OnSecondaryContainer">#1D192B</Color>
+    <Color x:Key="Secondary">#A6D395</Color>
+    <Color x:Key="OnSecondary">#12380B</Color>
+    <Color x:Key="SecondaryContainer">#294F20</Color>
+    <Color x:Key="OnSecondaryContainer">#C1EFAF</Color>
 
-    <Color x:Key="Tertiary">#7D5260</Color>
-    <Color x:Key="OnTertiary">#FFFFFF</Color>
-    <Color x:Key="TertiaryContainer">#FFD8E4</Color>
-    <Color x:Key="OnTertiaryContainer">#31111D</Color>
+    <Color x:Key="Tertiary">#80D5CF</Color>
+    <Color x:Key="OnTertiary">#003734</Color>
+    <Color x:Key="TertiaryContainer">#00504C</Color>
+    <Color x:Key="OnTertiaryContainer">#9DF1EB</Color>
 
-    <Color x:Key="Error">#B3261E</Color>
-    <Color x:Key="OnError">#FFFFFF</Color>
-    <Color x:Key="ErrorContainer">#F9DEDC</Color>
-    <Color x:Key="OnErrorContainer">#410E0B</Color>
+    <Color x:Key="Error">#FFB4AB</Color>
+    <Color x:Key="OnError">#690005</Color>
+    <Color x:Key="ErrorContainer">#93000A</Color>
+    <Color x:Key="OnErrorContainer">#FFB4AB</Color>
 
-    <Color x:Key="Surface">#FFFBFE</Color>
-    <Color x:Key="OnSurface">#1C1B1F</Color>
-    <Color x:Key="SurfaceVariant">#E7E0EC</Color>
-    <Color x:Key="OnSurfaceVariant">#49454F</Color>
+    <Color x:Key="Surface">#091615</Color>
+    <Color x:Key="OnSurface">#D7E5E3</Color>
+    <Color x:Key="SurfaceVariant">#324B49</Color>
+    <Color x:Key="OnSurfaceVariant">#BBC9C7</Color>
 
-    <Color x:Key="Background">#FFFBFE</Color>
-    <Color x:Key="OnBackground">#1C1B1F</Color>
+    <Color x:Key="Background">#111E1D</Color>
+    <Color x:Key="OnBackground">#D7E5E3</Color>
 
-    <Color x:Key="Outline">#79747E</Color>
-    <Color x:Key="OutlineVariant">#CAC4D0</Color>
+    <Color x:Key="Outline">#859492</Color>
+    <Color x:Key="OutlineVariant">#3C4948</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>

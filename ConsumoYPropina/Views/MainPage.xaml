@@ -18,86 +18,80 @@
                         VerticalOptions="Center"/>
                     <Label
                         Text="Resultados por persona"
+                        FontSize="16"
                         FontFamily="GoogleSansCodeRegular"
                         VerticalOptions="Center"/>
                 </HorizontalStackLayout>
 
                 <VerticalStackLayout Spacing="8">
 
-                    <!-- Card Total: fondo Primary, texto OnPrimary -->
                     <Border
-                        Padding="20,28,20,28"
-                        BackgroundColor="{DynamicResource Primary}"
-                        Stroke="{DynamicResource Primary}"
+                        BackgroundColor="{DynamicResource PrimaryContainer}"
+                        StrokeThickness="0"
                         StrokeShape="RoundRectangle 20">
                         <FlexLayout
-                            Direction="Row"
-                            JustifyContent="SpaceBetween"
-                            AlignItems="Center">
+                            Padding="20,28,20,28"
+                            Direction="Column">
                             <Label
                                 Text="Total"
-                                TextColor="{DynamicResource OnPrimary}"
-                                FontSize="28"
+                                TextColor="{DynamicResource OnPrimaryContainer}"
+                                FontSize="14"
                                 FontFamily="GoogleSansCodeRegular"
                                 FontAttributes="Bold"/>
                             <Label
                                 Text="{Binding TotalPerPerson, StringFormat='{0:C0}'}"
-                                TextColor="{DynamicResource OnPrimary}"
+                                TextColor="{DynamicResource OnPrimaryContainer}"
                                 FontSize="28"
                                 FontFamily="GoogleSansCodeRegular"
                                 FontAttributes="Bold"/>
                         </FlexLayout>
                     </Border>
-
-                    <!-- Card Subtotal: fondo PrimaryContainer, texto Primary -->
+                    
                     <Border
-                        Padding="20"
-                        BackgroundColor="{DynamicResource PrimaryContainer}"
-                        Stroke="{DynamicResource PrimaryContainer}"
+                        BackgroundColor="{DynamicResource SurfaceVariant}"
+                        StrokeThickness="0"
                         StrokeShape="RoundRectangle 20">
-                        <FlexLayout
-                            Direction="Row"
-                            JustifyContent="SpaceBetween"
-                            AlignItems="Center">
-                            <Label
-                                Text="Subtotal"
-                                TextColor="{DynamicResource OnPrimaryContainer}"
-                                FontSize="14"
-                                FontFamily="GoogleSansCodeRegular"
-                                FontAttributes="Bold"/>
-                            <Label
-                                Text="{Binding SubtotalPerPerson, StringFormat='{0:C0}'}"
-                                TextColor="{DynamicResource OnPrimaryContainer}"
-                                FontSize="14"
-                                FontFamily="GoogleSansCodeRegular"/>
-                        </FlexLayout>
-                    </Border>
+                        <VerticalStackLayout
+                            Padding="20"
+                            Spacing="16">
+                            <FlexLayout
+                                Direction="Row"
+                                JustifyContent="SpaceBetween"
+                                AlignItems="Center">
+                                <Label
+                                    Text="Subtotal"
+                                    FontSize="14"
+                                    FontFamily="GoogleSansCodeRegular"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Text="{Binding SubtotalPerPerson, StringFormat='{0:C0}'}"
+                                    FontSize="14"
+                                    FontFamily="GoogleSansCodeRegular"/>
+                            </FlexLayout>
 
-                    <!-- Card Propina: fondo PrimaryContainer, texto OnPrimaryContainer -->
-                    <Border
-                        Padding="20"
-                        BackgroundColor="{DynamicResource PrimaryContainer}"
-                        Stroke="{DynamicResource PrimaryContainer}"
-                        StrokeShape="RoundRectangle 20">
-                        <FlexLayout
-                            Direction="Row"
-                            JustifyContent="SpaceBetween"
-                            AlignItems="Center">
-                            <Label
-                                Text="Propina"
-                                TextColor="{DynamicResource OnPrimaryContainer}"
-                                FontSize="14"
-                                FontFamily="GoogleSansCodeRegular"
-                                FontAttributes="Bold"/>
-                            <Label
-                                Text="{Binding TipPerPerson, StringFormat='{0:C0}'}"
-                                TextColor="{DynamicResource OnPrimaryContainer}"
-                                FontSize="14"
-                                FontFamily="GoogleSansCodeRegular"/>
-                        </FlexLayout>
+                            <FlexLayout
+                                Direction="Row"
+                                JustifyContent="SpaceBetween"
+                                AlignItems="Center">
+                                <Label
+                                    Text="Propina"
+                                    FontSize="14"
+                                    FontFamily="GoogleSansCodeRegular"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Text="{Binding TipPerPerson, StringFormat='{0:C0}'}"
+                                    FontSize="14"
+                                    FontFamily="GoogleSansCodeRegular"/>
+                            </FlexLayout>
+                        </VerticalStackLayout>
                     </Border>
 
                 </VerticalStackLayout>
+
+                <BoxView
+                    HeightRequest="1"
+                    Color="{DynamicResource OutlineVariant}"
+                    HorizontalOptions="Fill"/>
 
                 <HorizontalStackLayout Spacing="8">
                     <Label
@@ -107,6 +101,7 @@
                         VerticalOptions="Center"/>
                     <Label
                         Text="Cantidad a pagar"
+                        FontSize="16"
                         FontFamily="GoogleSansCodeRegular"
                         VerticalOptions="Center"/>
                 </HorizontalStackLayout>
@@ -117,6 +112,11 @@
                     Text="{Binding Amount}"
                     FontFamily="GoogleSansCodeRegular"/>
 
+                <BoxView
+                    HeightRequest="1"
+                    Color="{DynamicResource OutlineVariant}"
+                    HorizontalOptions="Fill"/>
+
                 <HorizontalStackLayout Spacing="8">
                     <Label
                         Text="groups"
@@ -125,49 +125,59 @@
                         VerticalOptions="Center"/>
                     <Label
                         Text="Cantidad de personas"
+                        FontSize="16"
                         FontFamily="GoogleSansCodeRegular"
                         VerticalOptions="Center"/>
                 </HorizontalStackLayout>
 
-                <Grid
-                    ColumnDefinitions="*,*,*"
-                    ColumnSpacing="8"
-                    HeightRequest="75"
-                    HorizontalOptions="Fill">
-                    <Button
-                        Text="remove"
-                        FontSize="24"
-                        FontFamily="MaterialSymbols"
-                        Grid.Column="0"
-                        Command="{Binding DecreasePeopleCountCommand}"
-                        HorizontalOptions="Fill"
-                        VerticalOptions="Fill"/>
-
-                    <Border
-                        BackgroundColor="{DynamicResource PrimaryContainer}"
-                        Stroke="{DynamicResource PrimaryContainer}"
-                        StrokeShape="RoundRectangle 20"
-                        Grid.Column="1"
-                        HorizontalOptions="Fill"
-                        VerticalOptions="Fill">
-                        <Label
-                            Text="{Binding PeopleCount}"
+                <Border
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 100">
+                    <Grid
+                        ColumnDefinitions="*,*,*"
+                        ColumnSpacing="4"
+                        HeightRequest="50"
+                        HorizontalOptions="Fill">
+                        <Button
+                            Text="remove"
                             FontSize="24"
-                            TextColor="{DynamicResource OnPrimaryContainer}"
-                            FontFamily="GoogleSansCodeRegular"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"/>
-                    </Border>
+                            FontFamily="MaterialSymbols"
+                            Grid.Column="0"
+                            Command="{Binding DecreasePeopleCountCommand}"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Fill"
+                            CornerRadius="10"/>
 
-                    <Button
-                        Text="add"
-                        FontSize="24"
-                        FontFamily="MaterialSymbols"
-                        Grid.Column="2"
-                        Command="{Binding IncreasePeopleCountCommand}"
-                        HorizontalOptions="Fill"
-                        VerticalOptions="Fill"/>
-                </Grid>
+                        <Border
+                            BackgroundColor="{DynamicResource SurfaceVariant}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 10"
+                            Grid.Column="1"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Fill">
+                            <Label
+                                Text="{Binding PeopleCount}"
+                                FontSize="24"
+                                FontFamily="GoogleSansCodeRegular"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"/>
+                        </Border>
+                        <Button
+                            Text="add"
+                            FontSize="24"
+                            FontFamily="MaterialSymbols"
+                            Grid.Column="2"
+                            Command="{Binding IncreasePeopleCountCommand}"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Fill"
+                            CornerRadius="10"/>
+                    </Grid>
+                </Border>
+
+                <BoxView
+                    HeightRequest="1"
+                    Color="{DynamicResource OutlineVariant}"
+                    HorizontalOptions="Fill"/>
 
                 <HorizontalStackLayout Spacing="8">
                     <Label
@@ -177,14 +187,15 @@
                         VerticalOptions="Center"/>
                     <Label
                         Text="Porcentaje de propina"
+                        FontSize="16"
                         FontFamily="GoogleSansCodeRegular"
                         VerticalOptions="Center"/>
                 </HorizontalStackLayout>
 
                 <Grid
                     ColumnDefinitions="*,*,*"
-                    ColumnSpacing="8"
-                    HeightRequest="125"
+                    ColumnSpacing="4"
+                    HeightRequest="75"
                     HorizontalOptions="Fill">
                     <Button
                         Text="10%"
@@ -194,7 +205,19 @@
                         Command="{Binding SetTipPercentageCommand}"
                         CommandParameter="10"
                         HorizontalOptions="Fill"
-                        VerticalOptions="Fill"/>
+                        VerticalOptions="Fill"
+
+                        CornerRadius="100"
+                        
+                        BackgroundColor="{DynamicResource SurfaceVariant}"
+                        TextColor="{DynamicResource OnSurfaceVariant}">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding TipPercentage}" Value="10">
+                                <Setter Property="BackgroundColor" Value="{DynamicResource Primary}"/>
+                                <Setter Property="TextColor" Value="{DynamicResource OnPrimary}"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
                     <Button
                         Text="15%"
                         FontSize="24"
@@ -203,7 +226,19 @@
                         Command="{Binding SetTipPercentageCommand}"
                         CommandParameter="15"
                         HorizontalOptions="Fill"
-                        VerticalOptions="Fill"/>
+                        VerticalOptions="Fill"
+
+                        CornerRadius="100"
+                        
+                        BackgroundColor="{DynamicResource SurfaceVariant}"
+                        TextColor="{DynamicResource OnSurfaceVariant}">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding TipPercentage}" Value="15">
+                                <Setter Property="BackgroundColor" Value="{DynamicResource Primary}"/>
+                                <Setter Property="TextColor" Value="{DynamicResource OnPrimary}"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
                     <Button
                         Text="20%"
                         FontSize="24"
@@ -212,7 +247,19 @@
                         Command="{Binding SetTipPercentageCommand}"
                         CommandParameter="20"
                         HorizontalOptions="Fill"
-                        VerticalOptions="Fill"/>
+                        VerticalOptions="Fill"
+
+                        CornerRadius="100"
+                        
+                        BackgroundColor="{DynamicResource SurfaceVariant}"
+                        TextColor="{DynamicResource OnSurfaceVariant}">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding TipPercentage}" Value="20">
+                                <Setter Property="BackgroundColor" Value="{DynamicResource Primary}"/>
+                                <Setter Property="TextColor" Value="{DynamicResource OnPrimary}"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
                 </Grid>
 
                 <Slider
@@ -232,7 +279,7 @@
                         FontFamily="GoogleSansCodeRegular"/>
                     <Border
                         BackgroundColor="{DynamicResource PrimaryContainer}"
-                        Stroke="Transparent"
+                        StrokeThickness="0"
                         StrokeShape="RoundRectangle 20"
                         Padding="12,8,12,8">
                         <Label
