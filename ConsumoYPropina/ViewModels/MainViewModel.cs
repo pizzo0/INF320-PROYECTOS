@@ -34,20 +34,36 @@ public partial class MainViewModel : ObservableObject
 
     partial void OnAmountChanged(int value)
     {
-        if (value < 0) Amount = 0;
+        if (value < 0)
+        {
+            Amount = 0;
+            return;
+        }
         UpdateCalculations();
     }
 
     partial void OnPeopleCountChanged(int value)
     {
-        if (value <= 0) PeopleCount = 1;
+        if (value <= 0)
+        {
+            PeopleCount = 1;
+            return;
+        }
         UpdateCalculations();
     }
 
     partial void OnTipPercentageChanged(int value)
     {
-        if (value < 0) TipPercentage = 0;
-        else if (value > 50) TipPercentage = 50;
+        if (value < 0)
+        {
+            TipPercentage = 0;
+            return;
+        }
+        else if (value > 50)
+        {
+            TipPercentage = 50;
+            return;
+        }
         UpdateCalculations();
     }
 

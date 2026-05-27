@@ -265,7 +265,7 @@
                 <Slider
                     Minimum="0"
                     Maximum="50"
-                    Value="{Binding TipPercentage}"/>
+                    Value="{Binding TipPercentage, Mode=TwoWay}"/>
 
                 <FlexLayout
                     Padding="8,0,8,0"
