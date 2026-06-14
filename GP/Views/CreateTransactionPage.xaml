@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="GP.Views.CreateTransactionPage"
+             Title="Nueva transacción">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Label Text="Descripción" />
+            <Entry Text="{Binding Trans.Description}" Placeholder="Salario" />
+
+            <Label Text="Monto" />
+            <Entry Text="{Binding Trans.Amount}" Keyboard="Numeric" Placeholder="100000" />
+
+            <Label Text="Fecha" />
+            <DatePicker Date="{Binding Trans.Date}" />
+
+            <Label Text="¿Es un ingreso?" />
+            <Switch IsToggled="{Binding Trans.IsIncome}" />
+
+            <Label Text="{Binding Error}" TextColor="Red" IsVisible="{Binding Error, Converter={toolkit:IsStringNotNullOrEmptyConverter}}"/>
+
+            <Button Text="Guardar" Command="{Binding CreateTransactionCommand}" />
+            <Button Text="Cancelar" Command="{Binding GoBackCommand}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
