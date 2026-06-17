@@ -3,17 +3,12 @@ using GP.Models;
 
 namespace GP.Database;
 
-public class TransactionRepository : Repository<Transaction>
+public class TransactionRepository(SQLiteConnection conn) : Repository<Transaction>(conn)
 {
-    public TransactionRepository(SQLiteConnection conn) : base(conn) { }
-
-    public (int Income, int Expenses, int Balance) GetSummary()
+    // solo falta hacer el calculateBalance, calculateIncome y calculateExpenses
+    
+    public override List<Transaction> Get()
     {
-        var all = _conn.Table<Transaction>().ToList();
-
-        int income = all.Where(t => t.IsIncome).Sum(t => t.Amount);
-        int expenses = all.Where(t => !t.IsIncome).Sum(t => t.Amount);
-
-        return (income, expenses, income - expenses);
+        return [.. _conn.Table<Transaction>().OrderByDescending(t => t.Date)];
     }
 }

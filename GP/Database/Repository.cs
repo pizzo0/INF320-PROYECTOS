@@ -12,23 +12,23 @@ public class Repository<T> where T : new()
         _conn.CreateTable<T>();
     }
     
-    public List<T> Get()
+    public virtual List<T> Get()
     {
-        return _conn.Table<T>().ToList();
+        return [.. _conn.Table<T>()];
     }
-    public T? GetById(int id)
+    public virtual T? GetById(int id)
     {
         return _conn.Find<T>(id);
     }
-    public int Insert(T entity)
+    public virtual int Insert(T entity)
     {
         return _conn.Insert(entity);
     }
-    public int Update(T entity)
+    public virtual int Update(T entity)
     {
         return _conn.Update(entity);
     }
-    public int Delete(T entity)
+    public virtual int Delete(T entity)
     {
         return _conn.Delete(entity);
     }

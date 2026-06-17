@@ -10,7 +10,7 @@ namespace GP.ViewModels;
 public partial class MainViewModel : ObservableObject
 {
     private readonly TransactionRepository _repo;
-    public ObservableCollection<Transaction> Transactions { get; } = new ObservableCollection<Transaction>();
+    public ObservableCollection<Transaction> Transactions { get; } = [];
 
     public MainViewModel(TransactionRepository repo)
     {

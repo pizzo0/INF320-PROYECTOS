@@ -5,34 +5,27 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace GP.ViewModels;
 
-public partial class CreateTransactionViewModel : ObservableObject
+public partial class CreateTransactionViewModel(TransactionRepository repo) : ObservableObject
 {
     [ObservableProperty]
-    public partial string Error { get; set; }
+    public partial string Error { get; set; } = string.Empty;
 
     [ObservableProperty]
-    public partial Transaction Trans { get; set; }
+    public partial Transaction Trans { get; set; } = new();
 
-    private readonly TransactionRepository _transactionRepository;
-
-    public CreateTransactionViewModel(TransactionRepository transactionRepository)
-    {
-        _transactionRepository = transactionRepository;
-        Error = string.Empty;
-        Trans = new();
-    }
+    private readonly TransactionRepository _repo = repo;
 
     [RelayCommand]
     public async Task CreateTransaction()
     {
         if (!IsValid()) return;
 
-        _transactionRepository.Insert(Trans);
+        _repo.Insert(Trans);
         await GoBack();
     }
 
     [RelayCommand]
-    public async Task GoBack()
+    public static async Task GoBack()
     {
         await Shell.Current.GoToAsync("..");
     }
