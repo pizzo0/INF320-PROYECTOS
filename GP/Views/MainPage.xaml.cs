@@ -1,4 +1,4 @@
-﻿using GP.ViewModels;
+using GP.ViewModels;
 
 namespace GP.Views;
 
@@ -13,7 +13,9 @@ public partial class MainPage : ContentPage
 	protected override void OnAppearing()
     {
         base.OnAppearing();
-        if (BindingContext is MainViewModel vm)
+        if (BindingContext is MainViewModel vm) {
             vm.LoadTransactions();
+			vm.LoadBalance();
+		}
     }
 }
