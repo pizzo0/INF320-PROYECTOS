@@ -34,6 +34,11 @@ public partial class MainViewModel : ObservableObject
         Transactions.Clear();
 
         foreach (var t in list) Transactions.Add(t);
+        LoadBalance();
+    }
+
+    public void LoadBalance()
+    {
         Balance = _repo.CalculateBalance();
         TotalIncome = _repo.CalculateIncome();
         TotalExpenses = _repo.CalculateExpenses();
@@ -60,6 +65,7 @@ public partial class MainViewModel : ObservableObject
 
         _repo.Delete(transaction);
         Transactions.Remove(transaction);
+        LoadBalance();
         await Toast.Make("Transacción eliminada").Show();
     }
 }
