@@ -42,6 +42,6 @@ public class TransactionRepository(SQLiteConnection conn) : Repository<Transacti
 
     public override List<Transaction> Get()
     {
-        return [.. _conn.Table<Transaction>().OrderByDescending(t => t.Date)];
+        return [.. _conn.Table<Transaction>().OrderByDescending(t => t.Date).ThenByDescending(t => t.Id)];
     }
 }

@@ -2,8 +2,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:utils="clr-namespace:GP.Utils"
     x:Class="GP.Views.CreateTransactionPage"
     BackgroundColor="#F8FAFC">
+
+    <ContentPage.Resources>
+        <utils:EmptyToZeroDecimalConverter x:Key="EmptyToZeroDecimalConverter" />
+    </ContentPage.Resources>
 
     <ScrollView>
 
@@ -84,8 +89,8 @@
 
                                     <Entry
                                         Grid.Column="1"
-                                        Text="{Binding Trans.Description}"
-                                        Placeholder="Ej: Supermercado"
+                                        Text="{Binding Description}"
+                                        Placeholder="Ej: Salario, Supermercado"
                                         PlaceholderColor="#94A3B8"
                                         TextColor="#0F172A"
                                         BackgroundColor="Transparent"/>
@@ -122,10 +127,10 @@
 
                                     <Entry
                                         Grid.Column="1"
-                                        Text="{Binding Trans.Amount}"
+                                        Text="{Binding Amount, Converter={StaticResource EmptyToZeroDecimalConverter}}"
                                         Keyboard="Numeric"
-                                        Placeholder="$0"
-                                        FontSize="20"
+                                        Placeholder="10000"
+                                        PlaceholderColor="#94A3B8"
                                         FontAttributes="Bold"
                                         TextColor="#0F172A"
                                         BackgroundColor="Transparent"/>
@@ -162,7 +167,7 @@
 
                                     <DatePicker
                                         Grid.Column="1"
-                                        Date="{Binding Trans.Date}"
+                                        Date="{Binding Date}"
                                         TextColor="#0F172A"
                                         BackgroundColor="Transparent"/>
                                 </Grid>
@@ -172,8 +177,8 @@
                         <!-- Tipo -->
 
                         <Border
-                            BackgroundColor="{Binding Trans.IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#ECFDF5', FalseObject='#FEF2F2'}}"
-                            Stroke="{Binding Trans.IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#A7F3D0', FalseObject='#FECACA'}}"
+                            BackgroundColor="{Binding IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#ECFDF5', FalseObject='#FEF2F2'}}"
+                            Stroke="{Binding IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#A7F3D0', FalseObject='#FECACA'}}"
                             StrokeThickness="1"
                             StrokeShape="RoundRectangle 16"
                             Padding="16,14">
@@ -186,24 +191,24 @@
                                     HeightRequest="42"
                                     StrokeThickness="0"
                                     VerticalOptions="Center"
-                                    BackgroundColor="{Binding Trans.IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#D1FAE5', FalseObject='#FEE2E2'}}"
+                                    BackgroundColor="{Binding IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#D1FAE5', FalseObject='#FEE2E2'}}"
                                     StrokeShape="RoundRectangle 21">
 
                                     <Label
-                                        Text="{Binding Trans.IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='arrow_upward_alt', FalseObject='arrow_downward_alt'}}"
+                                        Text="{Binding IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='arrow_upward_alt', FalseObject='arrow_downward_alt'}}"
                                         FontFamily="MaterialSymbols"
                                         FontSize="20"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"
-                                        TextColor="{Binding Trans.IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#059669', FalseObject='#DC2626'}}"/>
+                                        TextColor="{Binding IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#059669', FalseObject='#DC2626'}}"/>
                                 </Border>
 
                                 <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
                                     <Label
-                                        Text="{Binding Trans.IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='Ingreso', FalseObject='Gasto'}}"
+                                        Text="{Binding IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='Ingreso', FalseObject='Gasto'}}"
                                         FontAttributes="Bold"
                                         FontSize="15"
-                                        TextColor="{Binding Trans.IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#047857', FalseObject='#B91C1C'}}"/>
+                                        TextColor="{Binding IsIncome, Converter={toolkit:BoolToObjectConverter TrueObject='#047857', FalseObject='#B91C1C'}}"/>
                                     <Label
                                         Text="Desliza para cambiar el tipo"
                                         FontSize="12"
@@ -212,8 +217,10 @@
 
                                 <Switch
                                     Grid.Column="2"
-                                    IsToggled="{Binding Trans.IsIncome}"
-                                    OnColor="#10B981"
+                                    IsToggled="{Binding IsIncome}"
+                                    OnColor="#047857"
+                                    OffColor="#B91C1C"
+                                    ThumbColor="White"
                                     VerticalOptions="Center"/>
                             </Grid>
                         </Border>

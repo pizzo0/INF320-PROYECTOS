@@ -15,7 +15,6 @@ public partial class MainPage : ContentPage
         base.OnAppearing();
         if (BindingContext is MainViewModel vm) {
             vm.LoadTransactions();
-			vm.LoadBalance();
 		}
     }
 }

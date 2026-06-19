@@ -11,7 +11,16 @@ public partial class CreateTransactionViewModel(TransactionRepository repo) : Ob
     public partial string Error { get; set; } = string.Empty;
 
     [ObservableProperty]
-    public partial Transaction Trans { get; set; } = new();
+    public partial string Description { get; set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial decimal Amount { get; set; } = 0;
+
+    [ObservableProperty]
+    public partial DateTime Date { get; set; } = DateTime.Today;
+
+    [ObservableProperty]
+    public partial bool IsIncome { get; set; } = true;
 
     private readonly TransactionRepository _repo = repo;
 
@@ -20,7 +29,16 @@ public partial class CreateTransactionViewModel(TransactionRepository repo) : Ob
     {
         if (!IsValid()) return;
 
-        _repo.Insert(Trans);
+        Transaction t = new()
+        {
+            Description = Description,
+            Amount = Amount,
+            Date = Date,
+            IsIncome = IsIncome
+        };
+
+        _repo.Insert(t);
+
         await GoBack();
     }
 
@@ -32,13 +50,13 @@ public partial class CreateTransactionViewModel(TransactionRepository repo) : Ob
 
     public bool IsValid()
     {
-        if (string.IsNullOrWhiteSpace(Trans.Description))
+        if (string.IsNullOrWhiteSpace(Description))
         {
             Error = "La descripción es obligatoria";
             return false;
         }
 
-        if (Trans.Amount <= 0)
+        if (Amount <= 0)
         {
             Error = "Ingresa un monto válido";
             return false;
