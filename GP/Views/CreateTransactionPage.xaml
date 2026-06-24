@@ -90,6 +90,7 @@
                                     <Entry
                                         Grid.Column="1"
                                         Text="{Binding Description}"
+                                        Keyboard="Text"
                                         Placeholder="Salario, Supermercado"
                                         PlaceholderColor="#94A3B8"
                                         TextColor="#0F172A"
@@ -131,7 +132,6 @@
                                         Keyboard="Numeric"
                                         Placeholder="10000"
                                         PlaceholderColor="#94A3B8"
-                                        FontAttributes="Bold"
                                         TextColor="#0F172A"
                                         BackgroundColor="Transparent"/>
                                 </Grid>

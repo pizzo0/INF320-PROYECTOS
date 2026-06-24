@@ -37,7 +37,7 @@
                             <Border BackgroundColor="#F8FAFC" Stroke="#E2E8F0" StrokeThickness="1" StrokeShape="RoundRectangle 14" Padding="14,2">
                                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
                                     <Label Grid.Column="0" Text="person" FontFamily="MaterialSymbols" FontSize="20" TextColor="#94A3B8" VerticalOptions="Center" />
-                                    <Entry Grid.Column="1" Text="{Binding Username}" Placeholder="JUANITO" PlaceholderColor="#94A3B8" TextColor="#0F172A" BackgroundColor="Transparent" TextTransform="Uppercase" />
+                                    <Entry Grid.Column="1" Text="{Binding Username}" Placeholder="JUANITO" PlaceholderColor="#94A3B8" TextColor="#0F172A" BackgroundColor="Transparent" TextTransform="Uppercase" Keyboard="Text" />
                                 </Grid>
                             </Border>
                         </VerticalStackLayout>
