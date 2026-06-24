@@ -90,7 +90,7 @@
                                     <Entry
                                         Grid.Column="1"
                                         Text="{Binding Description}"
-                                        Placeholder="Ej: Salario, Supermercado"
+                                        Placeholder="Salario, Supermercado"
                                         PlaceholderColor="#94A3B8"
                                         TextColor="#0F172A"
                                         BackgroundColor="Transparent"/>
@@ -225,81 +225,78 @@
                             </Grid>
                         </Border>
 
+                        <!-- Error -->
+                        <Border
+                            IsVisible="{Binding Error, Converter={toolkit:IsStringNotNullOrEmptyConverter}}"
+                            BackgroundColor="#FEF2F2"
+                            Stroke="#FECACA"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 16"
+                            Padding="14,12">
+
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                                <Label
+                                    Grid.Column="0"
+                                    Text="error"
+                                    FontFamily="MaterialSymbols"
+                                    FontSize="20"
+                                    TextColor="#DC2626"
+                                    VerticalOptions="Center"/>
+
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{Binding Error}"
+                                    FontSize="13"
+                                    TextColor="#B91C1C"
+                                    VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- Guardar -->
+                        <Border
+                            HeightRequest="58"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 16">
+
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#3B0764" Offset="0.0" />
+                                    <GradientStop Color="#7E22CE" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <Border.Shadow>
+                                <Shadow Brush="#3B0764" Opacity="0.35" Radius="16" Offset="0,6" />
+                            </Border.Shadow>
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CreateTransactionCommand}" />
+                            </Border.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label
+                                    Grid.Column="0"
+                                    Text="check_circle"
+                                    FontFamily="MaterialSymbols"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    VerticalOptions="Center"/>
+
+                                <Label
+                                    Grid.Column="1"
+                                    Text="Guardar transacción"
+                                    FontSize="16"
+                                    FontAttributes="Bold"
+                                    TextColor="White"
+                                    VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+
                     </VerticalStackLayout>
 
                 </Border>
 
-                <!-- Error -->
-
-                <Border
-                    IsVisible="{Binding Error, Converter={toolkit:IsStringNotNullOrEmptyConverter}}"
-                    BackgroundColor="#FEF2F2"
-                    Stroke="#FECACA"
-                    StrokeThickness="1"
-                    StrokeShape="RoundRectangle 16"
-                    Padding="14,12">
-
-                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
-                        <Label
-                            Grid.Column="0"
-                            Text="error"
-                            FontFamily="MaterialSymbols"
-                            FontSize="20"
-                            TextColor="#DC2626"
-                            VerticalOptions="Center"/>
-
-                        <Label
-                            Grid.Column="1"
-                            Text="{Binding Error}"
-                            FontSize="13"
-                            TextColor="#B91C1C"
-                            VerticalOptions="Center"/>
-                    </Grid>
-                </Border>
-
-                <!-- Botón principal -->
-
-                <Border
-                    HeightRequest="58"
-                    StrokeThickness="0"
-                    StrokeShape="RoundRectangle 16">
-
-                    <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="#3B0764" Offset="0.0" />
-                            <GradientStop Color="#7E22CE" Offset="1.0" />
-                        </LinearGradientBrush>
-                    </Border.Background>
-
-                    <Border.Shadow>
-                        <Shadow Brush="#3B0764" Opacity="0.35" Radius="16" Offset="0,6" />
-                    </Border.Shadow>
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding CreateTransactionCommand}" />
-                    </Border.GestureRecognizers>
-
-                    <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8" HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label
-                            Grid.Column="0"
-                            Text="check_circle"
-                            FontFamily="MaterialSymbols"
-                            FontSize="20"
-                            TextColor="White"
-                            VerticalOptions="Center"/>
-
-                        <Label
-                            Grid.Column="1"
-                            Text="Guardar transacción"
-                            FontSize="16"
-                            FontAttributes="Bold"
-                            TextColor="White"
-                            VerticalOptions="Center"/>
-                    </Grid>
-                </Border>
-
                 <!-- Cancelar -->
-
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="6">
 
                     <HorizontalStackLayout.GestureRecognizers>

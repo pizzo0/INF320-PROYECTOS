@@ -19,25 +19,50 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <VerticalStackLayout Spacing="22">
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                    <Label Grid.Column="0"
+                        Text="TRANSACCIONES"
+                        FontSize="13"
+                        FontAttributes="Bold"
+                        CharacterSpacing="3"
+                        TextColor="#D8B4FE"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.ColumnSpan="2" />
 
-                <Label Text="TRANSACCIONES"
-                       FontSize="13"
-                       FontAttributes="Bold"
-                       CharacterSpacing="3"
-                       TextColor="#D8B4FE"
-                       HorizontalOptions="Center" />
+                    <Border Grid.Column="1"
+                            WidthRequest="40"
+                            HeightRequest="40"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 20"
+                            BackgroundColor="#3ED9ADFF"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center">
 
-                <VerticalStackLayout Spacing="2">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToSetUserCommand}" />
+                        </Border.GestureRecognizers>
+
+                        <Label Text="settings"
+                            FontFamily="MaterialSymbols"
+                            FontSize="20"
+                            TextColor="White"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                    </Border>
+                </Grid>
+
+                <VerticalStackLayout Spacing="2" Margin="0,22,0,0">
                     <Label Text="Hola,"
-                           FontSize="14"
-                           TextColor="#C4B5FD" />
-                    <Label Text="{Binding UserName}"
-                           FontSize="24"
-                           FontAttributes="Bold"
-                           TextColor="White" />
+                            FontSize="16"
+                            TextColor="#C4B5FD" />
+                    <Label Text="{Binding Username}"
+                            FontSize="26"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            TextTransform="Uppercase" />
                 </VerticalStackLayout>
-
             </VerticalStackLayout>
         </Border>
 
@@ -126,7 +151,7 @@
               Margin="20,20,20,0">
 
             <Label Grid.Row="0"
-                   Text="Historial"
+                   Text="Historial de transacciones"
                    FontSize="14"
                    TextColor="#94A3B8"
                    Margin="0,0,0,12" />

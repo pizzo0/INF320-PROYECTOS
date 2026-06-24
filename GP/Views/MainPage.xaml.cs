@@ -10,11 +10,12 @@ public partial class MainPage : ContentPage
 		BindingContext = vm;
 	}
 
-	protected override void OnAppearing()
+	protected override async void OnAppearing()
     {
         base.OnAppearing();
         if (BindingContext is MainViewModel vm) {
-            vm.LoadTransactions();
+            vm.Load();
+			await vm.EnsureUsername();
 		}
     }
 }

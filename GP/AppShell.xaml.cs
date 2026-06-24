@@ -9,5 +9,6 @@ public partial class AppShell : Shell
 		InitializeComponent();
 
 		Routing.RegisterRoute(nameof(CreateTransactionPage), typeof(CreateTransactionPage));
+		Routing.RegisterRoute(nameof(SetUserPage), typeof(SetUserPage));
 	}
 }

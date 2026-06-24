@@ -11,6 +11,7 @@ namespace GP.ViewModels;
 public partial class MainViewModel : ObservableObject
 {
     private readonly TransactionRepository _repo;
+    private readonly UserRepository _userRepo;
     public ObservableCollection<Transaction> Transactions { get; } = [];
 
     [ObservableProperty]
@@ -22,14 +23,21 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     public partial decimal TotalExpenses { get; set; }
 
-    public MainViewModel(TransactionRepository repo)
+    [ObservableProperty]
+    public partial string Username { get; set; } = string.Empty;
+
+    public MainViewModel(TransactionRepository repo, UserRepository userRepo)
     {
         _repo = repo;
-        LoadTransactions();
+        _userRepo = userRepo;
+        Load();
     }
 
-    public void LoadTransactions()
+    public void Load()
     {
+        var user = _userRepo.GetUser();
+        Username = user?.Username ?? string.Empty;
+
         var list = _repo.Get();
         Transactions.Clear();
 
@@ -48,6 +56,21 @@ public partial class MainViewModel : ObservableObject
     public async Task GoToCreateTransaction()
     {
         await Shell.Current.GoToAsync(nameof(CreateTransactionPage));
+    }
+
+    [RelayCommand]
+    public async Task GoToSetUser()
+    {
+        await Shell.Current.GoToAsync(nameof(SetUserPage));
+    }
+
+    [RelayCommand]
+    public async Task EnsureUsername()
+    {
+        if (string.IsNullOrWhiteSpace(Username))
+        {
+            await Shell.Current.GoToAsync(nameof(SetUserPage));
+        }
     }
 
     [RelayCommand]

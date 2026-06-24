@@ -1,6 +1,5 @@
 ﻿using GP.Views;
 using GP.ViewModels;
-using GP.Models;
 using GP.Database;
 using Microsoft.Extensions.Logging;
 using SQLite;
@@ -30,6 +29,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton(conn);
 
 		builder.Services.AddSingleton<TransactionRepository>();
+		builder.Services.AddSingleton<UserRepository>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
@@ -38,6 +38,9 @@ public static class MauiProgram
 
 		builder.Services.AddTransient<CreateTransactionViewModel>();
 		builder.Services.AddTransient<CreateTransactionPage>();
+
+		builder.Services.AddTransient<SetUserViewModel>();
+		builder.Services.AddTransient<SetUserPage>();
 
 		return builder.Build();
 	}
